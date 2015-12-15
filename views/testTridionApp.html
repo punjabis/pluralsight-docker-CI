@@ -1,0 +1,311 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"/>
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="http://www.datatables.net/release-datatables/extensions/TableTools/js/dataTables.tableTools.js"></script>
+    <link rel="stylesheet" href="http://www.datatables.net/release-datatables/extensions/TableTools/css/dataTables.tableTools.css"/>
+    <script>
+        var ticid = 0;
+        function x($scope) {
+
+            var tlist = [
+                            { id: 0, 'ticketnumber': 'PJ81551 - US9999', 'label': 'PJ81551 - Pwd MemWord MemWordReminder complexity', 'url': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/PUBLISH_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'cturl': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'qadate' : '03/15/2015', 'stagedate' : '03/18/2015', 'proddate' : '03/25/2015', 'notes' : 'this is an urgent ticket', 'dependurl' : 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html',  'depend':false},
+                            { id: 1, 'ticketnumber': 'PJ81552 - US9998', 'label': 'PJ81552 - Pwd MemWord MemWordReminder complexity', 'url': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/PUBLISH_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'cturl': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'qadate' : '03/15/2015', 'stagedate' : '03/18/2015', 'proddate' : '03/25/2015', 'notes' : 'this is an urgent ticket', 'dependurl' : 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html',  'depend':false},
+                            { id: 2, 'ticketnumber': 'PJ81553 - US9997', 'label': 'PJ81553 - Pwd MemWord MemWordReminder complexity', 'url': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/PUBLISH_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'cturl': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'qadate' : '03/15/2015', 'stagedate' : '03/18/2015', 'proddate' : '03/25/2015', 'notes' : 'this is an urgent ticket', 'dependurl' : 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html',  'depend':false},
+                            { id: 3, 'ticketnumber': 'PJ81554 - US9996', 'label': 'PJ81554 - Pwd MemWord MemWordReminder complexity', 'url': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/PUBLISH_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'cturl': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'qadate' : '03/15/2015', 'stagedate' : '03/18/2015', 'proddate' : '03/25/2015', 'notes' : 'this is an urgent ticket', 'dependurl' : 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html',  'depend':false}
+                        ];
+
+            $scope.tickets = tlist;
+
+//            $scope.tickets = [
+//                { id: 0, 'ticketnumber': 'PJ81551 - US9999', 'label': 'PJ81551 - Pwd MemWord MemWordReminder complexity', 'url': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/PUBLISH_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'cturl': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'qadate' : '03/15/2015', 'stagedate' : '03/18/2015', 'proddate' : '03/25/2015', 'notes' : 'this is an urgent ticket', 'dependurl' : 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html',  'depend':false},
+//                { id: 1, 'ticketnumber': 'PJ81552 - US9998', 'label': 'PJ81552 - Pwd MemWord MemWordReminder complexity', 'url': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/PUBLISH_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'cturl': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'qadate' : '03/15/2015', 'stagedate' : '03/18/2015', 'proddate' : '03/25/2015', 'notes' : 'this is an urgent ticket', 'dependurl' : 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html',  'depend':false},
+//                { id: 2, 'ticketnumber': 'PJ81553 - US9997', 'label': 'PJ81553 - Pwd MemWord MemWordReminder complexity', 'url': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/PUBLISH_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'cturl': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'qadate' : '03/15/2015', 'stagedate' : '03/18/2015', 'proddate' : '03/25/2015', 'notes' : 'this is an urgent ticket', 'dependurl' : 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html',  'depend':false},
+//                { id: 3, 'ticketnumber': 'PJ81554 - US9996', 'label': 'PJ81554 - Pwd MemWord MemWordReminder complexity', 'url': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/PUBLISH_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'cturl': 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html', 'qadate' : '03/15/2015', 'stagedate' : '03/18/2015', 'proddate' : '03/25/2015', 'notes' : 'this is an urgent ticket', 'dependurl' : 'http://dev-cms/WebUI/Editors/ReleaseManagerExtension/temp/CONTENTPORTER_RELEASE_FILELIST_PJ81551%20-%20Field%20Complexity.html',  'depend':false}
+//            ];
+
+            for ( property in tlist )
+            {
+                ticid++;
+            }
+
+            $scope.saveRecord = function () {
+                if ($scope.newTicket.id == null) {
+                    $scope.newTicket.id = ticid++;
+                    $scope.tickets.push($scope.newTicket);
+                } else {
+
+                    for (i in $scope.tickets) {
+                        if ($scope.tickets[i].id == $scope.newTicket.id) {
+                            $scope.tickets[i] = $scope.newTicket;
+                        }
+                    }
+                }
+                $scope.newTicket = {};
+            }
+
+            $scope.delete = function (id) {
+
+                for (i in $scope.tickets) {
+                    if ($scope.tickets[i].id == id) {
+                        $scope.tickets.splice(i, 1);
+                        $scope.newTicket = {};
+                    }
+                }
+
+            }
+
+            $scope.edit = function (id) {
+                for (i in $scope.tickets) {
+                    if ($scope.tickets[i].id == id) {
+                        $scope.newTicket = angular.copy($scope.tickets[i]);
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$('#gridTable').dataTable();
+            $("#datepickerqa").datepicker();
+            $("#datepickerstg").datepicker();
+            $("#datepickerprd").datepicker();
+
+//            var table = $('#gridTable').DataTable();
+//            var tt = new $.fn.dataTable.TableTools(table);
+//            $(tt.fnContainer()).insertBefore('div.dataTables_wrapper');
+
+            $( "#btnClick" ).click(function() {
+                $("#myModal").modal('show');
+            });
+
+            $('#gridTable').dataTable({
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "http://cdn.datatables.net/tabletools/2.2.2/swf/copy_csv_xls_pdf.swf"
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            
+        });
+    </script>
+
+    <style type="text/css">
+        .bs-example{
+    	    margin: 20px;
+        }
+        div.DTTT_container {
+            position: relative;
+            float: right;
+            margin-bottom: 1em;
+        }
+        .DTTT_button_copy div{
+            z-index: 5000 !important;
+        }
+ 
+        .DTTT_button_csv div{
+            z-index: 8001 !important;
+        }
+ 
+        .DTTT_button_xls div{
+            z-index: 5002 !important;
+        }
+ 
+        .DTTT_button_pdf div{
+            z-index: 5003 !important;
+        }
+ 
+        .DTTT_button_print div{
+            z-index: 5004 !important;
+        }
+        .DTTT_container
+        {
+            margin-left:10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <header id="HomeHeader" style="border-bottom: 1px solid #adc8db;height: 72px;-moz-box-shadow: 0px 3px 2px 0px #e5e7e6;-webkit-box-shadow: 0px 3px 2px 0px #e5e7e6;box-shadow: 0px 3px 2px 0px #e5e7e6;background: -moz-linear-gradient(top, #ffffff 0%, #ffffff 66%, #f2f3f7 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(66%,#ffffff), color-stop(100%,#f2f3f7));
+                background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 66%,#f2f3f7 100%);
+                background: -o-linear-gradient(top, #ffffff 0%,#ffffff 66%,#f2f3f7 100%);
+                background: -ms-linear-gradient(top, #ffffff 0%,#ffffff 66%,#f2f3f7 100%);
+                background: linear-gradient(to bottom, #ffffff 0%,#ffffff 66%,#f2f3f7 100%);">
+            <div class="bs-example">
+                <h2 style="text-align:center;font-weight: bold;">UK Tridion Dependency</h2> 
+            </div>
+        </header>
+
+        <div class="bs-example">
+            <input type="button" value="+Add" id="btnClick" class="btn btn-primary"/>
+        </div>
+
+        <div ng-app="" ng-controller="x">
+            <!--<label>Ticket/Story Number</label>
+            <input type="text" name="name" ng-model="newTicket.ticketnumber"/>
+            <label>Label</label>
+            <input type="text" name="address" ng-model="newTicket.label"/>
+            <label>Page URL</label>
+            <input type="text" name="dept" ng-model="newTicket.url"/>
+            <label>Component URL</label>
+            <input type="text" name="dept" ng-model="newTicket.cturl"/>
+            <input type="hidden" ng-model="newTicket.id" />
+            <input type="button" value="Save" ng-click="saveRecord()" class="btn btn-primary"/>-->
+        
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color:#D7E1EB; ">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" style=" text-align:center;">Ticket Information</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table>
+                                <tr>
+                                    <td><label>Ticket/Story Number</label></td>
+                                    <td><input type="text" name="name" ng-model="newTicket.ticketnumber"  style="margin-left:50px;width:350px;margin-bottom: 15px;"/></td>
+                                </tr>
+                                <tr>
+                                    <td> <label>Label</label></td>
+                                    <td><input type="text" name="address" ng-model="newTicket.label"  style="margin-left:50px;width:350px;margin-bottom: 15px;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Page URL</label></td>
+                                    <td><input type="text" name="dept" ng-model="newTicket.url"  style="margin-left:50px;width:350px;margin-bottom: 15px;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Component URL</label></td>
+                                    <td><input type="text" name="dept" ng-model="newTicket.cturl"  style="margin-left:50px;width:350px;margin-bottom: 15px;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label>QA date</label></td>
+                                    <td><input type="text" id="datepickerqa" style="margin-left:50px;width:350px;margin-bottom: 15px;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Stage date</label></td>
+                                    <td><input type="text" id="datepickerstg" style="margin-left:50px;width:350px;margin-bottom: 15px;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label>PROD date</label></td>
+                                    <td><input type="text" id="datepickerprd" style="margin-left:50px;width:350px;margin-bottom: 15px;"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label>Notes</label></td>
+                                    <td>
+                                        <textarea rows="4" cols="41" style="margin-left:50px;margin-bottom: 15px;">
+                                        </textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label style="  margin-bottom: 40px;">Depandancy</label></td>
+                                    <td>
+                                        <fieldset style="">
+                                            <input type="text" name="dept" ng-model="newTicket.dependurl"  style="margin-left:50px;width:350px;margin-bottom: 15px;"/>
+                                            <div class="btn-group" data-toggle="buttons" style="margin-left:50px;display:block;">
+                                                <label class="btn btn-primary ">
+                                                    <input type="radio" name="options" id="option1"> Yes
+                                                </label>
+                                                <label class="btn btn-primary active">
+                                                    <input type="radio" name="options" id="option2"> No
+                                                </label>                                                
+                                            </div>
+                                        </fieldset>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <input type="hidden" ng-model="newTicket.id" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <input type="button" value="Save" ng-click="saveRecord()" class="btn btn-primary"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-example">
+            <div class="table-responsive"> 
+            <table class="table table-striped" style="background-color:#D7E1EB; border-color:#D5E1EB;" id="gridTable">
+                <thead style="">
+                <tr>
+                    <th style="width:2%; text-align:center;">ID</th>
+                    <th style="width:8%; text-align:center;" >Ticket-Story</th>
+                    <th style="width:15%; text-align:center;">Label</th>
+                    <th style="width:5%; text-align:center;">Pages</th>
+                    <th style="width:5%; text-align:center;">Components</th>
+                    <th style="width:6%; text-align:center;">QA Date</th>
+                    <th style="width:6%; text-align:center;">Stage Date</th>
+                    <th style="width:6%; text-align:center;">PROD Date</th>
+                    <th style="width:20%; text-align:center;">Notes</th>
+                    <th style="width:5%; text-align:center;">Dependancy</th>
+                    <th style="width:15%; text-align:center;">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="ticket in tickets">                
+                    <td align="center">
+                        {{ ticket.id }}
+                    </td>
+                    <td>
+                        {{ ticket.ticketnumber }}
+                    </td>
+                    <td>
+                        {{ ticket.label }}
+                    </td>
+                    <td align="center">
+                        <a ng-href="{{ticket.url}}" target="_blank" style="text-decoration: none;">
+						    <span style="color: blue;">View</span>
+					    </a>
+                    </td>
+                    <td align="center">
+                        <a ng-href="{{ticket.cturl}}" target="_blank" style="text-decoration: none;">
+						    <span style="color: blue;">View</span>
+					    </a>
+                    </td>
+                    <td align="center">
+                        {{ ticket.qadate }}
+                    </td>
+                    <td align="center">
+                        {{ ticket.stagedate }}
+                    </td>
+                    <td align="center">
+                        {{ ticket.proddate }}
+                    </td>
+                    <td>
+                        {{ ticket.notes }}
+                    </td>
+                    <td align="center">
+                        <a ng-href="{{ticket.dependurl}}" target="_blank" style="text-decoration: none;">
+						    <span style="color: blue;">View ({{ ticket.depend?'yes':'no' }})</span>
+					    </a>
+                    </td>
+                    <td align="center">
+                        <a href="#" ng-click="edit(ticket.id)">edit</a> | 
+                        <a href="#" ng-click="delete(ticket.id)">delete</a> |
+                        <a href="#" ng-click="delete(ticket.id)">email</a> | 
+                        <a href="#" ng-click="delete(ticket.id)">archive</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
